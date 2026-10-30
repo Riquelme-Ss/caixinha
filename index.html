@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Caixinha</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Caixinha">
+<meta name="theme-color" content="#2F5BEA">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <div class="top">
+    <button class="nav" id="prev" aria-label="Mês anterior">‹</button>
+    <h1 id="mes"></h1>
+    <button class="nav" id="next" aria-label="Próximo mês">›</button>
+  </div>
+  <div id="v-resumo"></div>
+  <div id="v-lanc" hidden></div>
+  <div id="v-lim" hidden></div>
+</main>
+
+<div class="brand"><img src="icon.svg" alt=""> Caixinha</div>
+<button class="fab" id="fab">+ Lançamento</button>
+<nav class="tabs" role="tablist">
+  <button role="tab" data-v="resumo" aria-selected="true">Resumo</button>
+  <button role="tab" data-v="lanc" aria-selected="false">Lançamentos</button>
+  <button role="tab" data-v="lim" aria-selected="false">Limites</button>
+</nav>
+
+<div class="sheet" id="sheet">
+  <div class="panel" role="dialog" aria-label="Lançamento">
+    <div class="seg"><button id="tE" aria-pressed="true">Despesa</button><button id="tI" aria-pressed="false">Receita</button></div>
+    <input class="field" id="val" inputmode="decimal" placeholder="Valor (ex.: 25,90)" aria-label="Valor">
+    <div class="two"><select class="field" id="cat" aria-label="Categoria"></select><input class="field" id="date" type="date" aria-label="Data"></div>
+    <input class="field" id="desc" placeholder="Descrição (opcional)" maxlength="60" aria-label="Descrição">
+    <label class="chk"><input type="checkbox" id="rec"> Repete todo mês (aluguel, salário, assinaturas)</label>
+    <p class="err" id="err" role="alert"></p>
+    <button class="btn" id="save">Salvar</button>
+    <button class="btn ghost" id="del" hidden>Excluir lançamento</button>
+    <button class="btn ghost" id="cancel" style="color:var(--muted)">Cancelar</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
